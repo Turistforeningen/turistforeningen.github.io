@@ -1,7 +1,7 @@
-twitter.github.com
+turistforeningen.github.com
 ======
 
-The source code of http://twitter.github.com/
+The source code of http://turistforeningen.github.com/
 
 LICENSE
 ------------
