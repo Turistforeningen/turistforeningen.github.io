@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Twitter &hearts; Open Source</title>
+    <title>Turistforeningen &hearts; Open Source</title>
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -13,9 +13,7 @@
 
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = {
-        "bootstrap": "http://twitter.github.com/bootstrap/",
-        "finagle": "http://twitter.github.com/finagle/",
-        "hogan.js": "http://twitter.github.com/hogan.js/"
+        "jQuery Hashtag": "http://turistforeningen.github.com/jquey.hashtag/"
       };
 
       function repoUrl(repo) {
@@ -67,7 +65,7 @@
         repos = repos || [];
         page = page || 1;
 
-        var uri = "https://api.github.com/orgs/twitter/repos?callback=?"
+        var uri = "https://api.github.com/orgs/turistforeningen/repos?callback=?"
                 + "&per_page=100"
                 + "&page="+page;
 
@@ -123,7 +121,7 @@
       }
       addRepos();
 
-      $.getJSON("https://api.github.com/orgs/twitter/members?callback=?", function (result) {
+      $.getJSON("https://api.github.com/orgs/turistforeningen/members?callback=?", function (result) {
         var members = result.data;
 
         $(function () {
@@ -131,118 +129,32 @@
         });
       });
 
-      function randomItem(array) {
-        return array[Math.floor(Math.random() * array.length)];
-      }
-
-      var $flyzone;
-
-      function flyzone() {
-        if (!$flyzone) {
-          $flyzone = $("<div>").attr("id", "flyzone").prependTo(document.body);
-        }
-
-        return $flyzone;
-      }
-
-      var sizes = ["smaller", "small", "medium", "large", "fat"];
-
-      var sizeDimensions = {
-        "smaller": 50,
-        "small": 80,
-        "medium": 130,
-        "large": 200,
-        "fat": 300
-      };
-
-      function randomOpacity(threshold) {
-        var opacity = Math.random();
-
-        while (opacity < threshold) {
-          opacity = Math.random();
-        }
-
-        return opacity;
-      }
-
-      function makeLarry(sizeName, speed) {
-        var size = sizeDimensions[sizeName];
-        var top = Math.floor((flyzone().height() - size) * Math.random());
-
-        var $img = $("<img>")
-          .addClass("larry size-" + sizeName)
-          .attr("src", "assets/larry.png")
-          .attr("width", size)
-          .attr("height", size)
-          .css({
-            position: "absolute",
-            opacity: randomOpacity(0.4),
-            top: top,
-            left: -size
-          });
-
-        $img.prependTo(flyzone());
-
-        var left = flyzone().width() + size;
-
-        $img.animate({left: left}, speed, function () {
-          $img.remove();
-          makeRandomLarry();
-        });
-
-        return $img;
-      }
-
-      function makeRandomLarry() {
-        var size = randomItem(sizes);
-        var speed = Math.floor(Math.random() * 20000) + 15000;
-        return makeLarry(size, speed);
-      }
-
-      $(function () {
-        $("#logo").click(function () {
-          makeRandomLarry();
-        });
-      });
-
-      var match = (/\blarry(=(\d+))?\b/i).exec(window.location.search);
-
-      if (match) {
-        var n = parseInt(match[2]) || 20;
-
-        $(function () {
-          for (var i = 0; i < n; ++i) {
-            setTimeout(makeRandomLarry, Math.random() * n * 500);
-          }
-        });
-      }
-
     })(jQuery);
     </script>
   </head>
   <body>
     <div id="wrapper" class="grid clearfix">
       <div id="main" class="grid-1">
-        <div id="logo"><h1>Twitter Open Source</h1></div>
-        <h1>Twitter is built on open source software.</h1>
-        <p>Want to help? <a href="https://twitter.com/jobs">Join the Flock</a></p>
-        <p>Visit <a href="https://dev.twitter.com/">dev.twitter.com</a></p>
-        <p><a href="https://twitter.com/about/resources">Logos and other goodies</a></p>
+        <div id="logo"><h1>Turistforeningen Open Source</h1></div>
+        <h1>Turistforeningen is deeply founded on volunteery work.</h1>
+        <p>Want to help? <a href="http://www.turistforeningen.no/dugnad/">Join us</a></p>
+        <!-- <p>Visit <a href="https://dev.twitter.com/">dev.twitter.com</a></p> -->
+        <!-- <p><a href="https://twitter.com/about/resources">Logos and other goodies</a></p> -->
       </div>
 
       <div class="grid grid-3">
         <div id="statistics" class="grid-1 alpha header">
           <h1>Statistics</h1>
           <p>
-            <a href="https://github.com/twitter/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
+            <a href="https://github.com/turistforeningen/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
             <br>
-            <a href="https://github.com/twitter"><span id="num-members"><img src="assets/spinner.gif" /></span> members</a>
+            <a href="https://github.com/turistforeningen"><span id="num-members"><img src="assets/spinner.gif" /></span> members</a>
           </p>
-          <p class="email"><a href="mailto:opensource@twitter.com">opensource@twitter.com</a></p>
+          <p class="email"><a href="mailto:info@turistforeningen.no">info@turistforeningen.no</a></p>
         </div>
 
         <div id="recently-updated" class="grid-2 omega header">
-          <h1>Recently updated <a href="https://github.com/twitter/repositories">View All on GitHub</a></h1>
+          <h1>Recently updated <a href="https://github.com/turistforeningen/repositories">View All on GitHub</a></h1>
           <ol id="recently-updated-repos"></ol>
         </div>
       </div>
