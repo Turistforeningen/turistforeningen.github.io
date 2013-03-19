@@ -164,11 +164,13 @@ li.repo h2 {
   margin-bottom: 2px;
   max-width: 160px;
   overflow: hidden;
+
+  padding-left: 30px;
+  background: no-repeat left url('img/public.png');
 }
 
 li.repo h2.fork {
-  padding-left: 15px;
-  background: no-repeat left url('fork.png');
+  background: no-repeat left url('img/fork.png');
 }
 
 li.repo h3 {
