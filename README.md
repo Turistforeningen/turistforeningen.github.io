@@ -1,7 +1,7 @@
-turistforeningen.github.com
+turistforeningen.github.io
 ======
 
-The source code of http://turistforeningen.github.com/
+The source code of http://turistforeningen.github.io/
 
 LICENSE
 ------------
